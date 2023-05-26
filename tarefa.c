@@ -6,7 +6,7 @@ int main(void) {
 	FILE* f;
 	unsigned char c;
 
-	//Array que contém o número de ocorrências de cada char no arquivo
+	//Array que contÃ©m o nÃºmero de ocorrÃªncias de cada char no arquivo
 
 	int ocorrencias[128];
 
@@ -25,7 +25,7 @@ int main(void) {
 		return NULL;
 	}
 
-	/*Lê os caracteres do arquivo e de acordo com seu valor ASCII(indice no array)
+	/*LÃª os caracteres do arquivo e de acordo com seu valor ASCII(indice no array)
 	* e incrementa 1 toda vez q esse caracter for encontrado */
 
 	while (!feof(f)) {
@@ -34,7 +34,19 @@ int main(void) {
 	}
 
 	fclose(f);
+	
+	//Imprimindo o array de caracteres resultante
 
+	imprimeArray(ocorrencias, sizeof(ocorrencias));
 
+	/*Criando a lista encadeada ordenada por prioridade(menos->mais ocorrÃªncias)
+	* para os caracteres do array */
+
+	No* lista = formaLista(ocorrencias, sizeof(ocorrencias));
+
+	//Imprimindo a lista resultante
+
+	imprimeLista(lista);
+	
 	return 0;
 }
