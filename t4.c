@@ -43,3 +43,26 @@ No * formaLista (int ocorrencias[], int tam){
   }
   return lista;
 }
+
+
+/*arvImprime imprime a árvore binária em pré- ordem, ou seja, primeiro as informações no nó raiz,
+seguido dos nós à esquerda e por fim os nós à direita*/
+
+void arvImprime(No* a){
+	/*Até o final da árvore, imprimimos suas informações*/
+
+	if (!arv_vazia(a)) {
+		/*Imprimindo as informações do nó raiz, incluindo seu valor inteiro e os ponteiros do
+		nó à esquerda, à direita e seu próprio ponteiro*/
+
+		printf("No:%p Esquerda:%p Char:%c Direita:%p\n", a, a->esq, a->a, a->dir);
+		
+		/*Imprime as informações dos nós à esquerda recursivamente*/
+		
+		arvImprime(a->esq); 
+		
+		/*Imprime as informações dos nós à direita recursivamente*/
+		
+		arvImprime(a->dir); 
+	}
+}
