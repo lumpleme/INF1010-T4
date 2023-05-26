@@ -1,10 +1,13 @@
-
 typedef struct no No; 
 
-struct no {
-	char a;
-	int ocorrencia;
-	No* dir;
-	No* esq;
-	No* prox;
-};
+void imprimeArray(int ocorrencias[], int tam);
+
+No* insereLista(No* lista, char c, int quant);
+
+No* formaLista(int ocorrencias[], int tam);
+
+int arv_vazia(No* a);
+
+void arvImprime(No* a);
+
+void imprimeLista(No* l);
