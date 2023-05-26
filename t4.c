@@ -3,12 +3,19 @@
 #include "t4.h"
 
 
-void imprimeArray(int ocorrencias[],int tam){
-  printf("Array:\n");
+void imprimeArray(int ocorrencias[], int tam){
+  printf("\nArray:\n");
   for(int i = 0; i < tam; i++){
 	printf("%c - %d ocorrencias\n", i, ocorrencias[i]);
   }	
   return;	
+}
+
+void imprimeLista(No* lista){
+  printf("\nLista encadeada por prioridade:\n\n");
+  for(No* p = lista; p != NULL; p = p->prox)
+    printf("%c - %d ocorrencias\n", p->a, p->ocorrencia;
+  return;
 }
 
 No * insereLista (No * lista, char c, int quant){
@@ -50,13 +57,6 @@ No * formaLista (int ocorrencias[], int tam){
 	lista = insereLista(lista, i, ocorrencias[i]);
   }
   return lista;
-}
-
-/*arv_vazia verifica se a árvore binária passada como parâmetro está vazia, retorna 1 (True) se estiver,
-senão, retorna 0 (False)*/
-
-int arv_vazia(No* a) {
-	return a == NULL;
 }
 
 
