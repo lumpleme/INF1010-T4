@@ -52,10 +52,11 @@ No * insereLista (No * lista, char c, int quant){
 	return lista;
 }
 
-No * formaLista (int ocorrencias[], int tam){
-  	No* lista = NULL;
+No* formaLista(int ocorrencias[], int tam) {
+	No* lista = NULL;
 	for (int i = 0; i < tam; i++) {
-		lista = insereLista(lista, i, ocorrencias[i]);
+		if (ocorrencias[i] > 0)
+			lista = insereLista(lista, i, ocorrencias[i]);
 	}
 	return lista;
 }
