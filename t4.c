@@ -1,23 +1,26 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "t4.h"
 
-char a;
-	int ocorrencia;
-	No* dir;
-	No* esq;
-	No* prox;
 
 No * insereLista (No * lista, char c, int quant){
-  if(lista == NULL)
-    return NULL;
-  No * novo = NULL, No* p = lista, No* ant = NULL;
+  No * novo = NULL, * p = lista, * ant = NULL;
   novo = (No *)malloc(sizeof(No));
-  if(novo == NULL)
+  if(novo == NULL){
+    printf("Erro na alocacao");
     return NULL;
+  }
   novo->a = c;
   novo->ocorrencia = quant;
   novo->dir = NULL;
   novo->esq = NULL;
+	
+  if(lista == NULL){
+    lista = novo;
+    novo->prox = NULL;
+    return lista;
+  }
+	
   for(; p != NULL; p = p->prox){
     if(p->prox != NULL){
       if(p->prox->ocorrencia >= quant){
@@ -33,8 +36,10 @@ No * insereLista (No * lista, char c, int quant){
   return lista;
 }
 
-No * formaLista (int ocorrencias[]){
-  
-  
-  
+No * formaLista (int ocorrencias[], int tam){
+  No* lista = NULL;
+  for(int i = 0; i < tam; i++){
+	lista = insereLista(lista, i, ocorrencias[i]);
+  }
+  return lista;
 }
