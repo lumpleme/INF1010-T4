@@ -3,7 +3,7 @@
 #include "t4.h"
 
 
-void imprimeArray(int ocorrencias[]){
+void imprimeArray(int ocorrencias[],int tam){
   printf("Array:\n");
   for(int i = 0; i < tam; i++){
 	printf("%c - %d ocorrencias\n", i, ocorrencias[i]);
