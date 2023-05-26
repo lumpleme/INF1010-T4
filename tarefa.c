@@ -37,12 +37,12 @@ int main(void) {
 	
 	//Imprimindo o array de caracteres resultante
 
-	imprimeArray(ocorrencias, sizeof(ocorrencias));
+	imprimeArray(ocorrencias, 128);
 
 	/*Criando a lista encadeada ordenada por prioridade(menos->mais ocorrências)
 	* para os caracteres do array */
 
-	No* lista = formaLista(ocorrencias, sizeof(ocorrencias));
+	No* lista = formaLista(ocorrencias, 128);
 
 	//Imprimindo a lista resultante
 
