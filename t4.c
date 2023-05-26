@@ -19,13 +19,16 @@ void imprimeArray(int ocorrencias[], int tam){
 	return;	
 }
 
-No * insereLista (No * lista, char c, int quant){
+No* insereLista(No* lista, char c, int quant) {
 	No* novo = NULL, * p = lista, * ant = NULL;
+
 	novo = (No*)malloc(sizeof(No));
+	
 	if (novo == NULL) {
 		printf("Erro na alocacao");
 		return NULL;
 	}
+	
 	novo->a = c;
 	novo->ocorrencia = quant;
 	novo->dir = NULL;
@@ -37,18 +40,27 @@ No * insereLista (No * lista, char c, int quant){
 		return lista;
 	}
 
-	for (; p != NULL; p = p->prox) {
-		if (p->prox != NULL) {
-			if (p->prox->ocorrencia >= quant) {
-				ant = p;
-				p = p->prox;
-				break;
-			}
-		}
-		ant = p;
+	if (p->ocorrencia >= quant) {
+		lista = novo;
 	}
-	ant->prox = novo;
+
+	else {
+		for (; p != NULL; p = p->prox) {
+			if (p->prox != NULL) {
+				if (p->prox->ocorrencia >= quant) {
+					ant = p;
+					p = p->prox;
+					break;
+				}
+			}
+			ant = p;
+		}
+		ant->prox = novo;
+
+	}
+
 	novo->prox = p;
+	
 	return lista;
 }
 
