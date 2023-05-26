@@ -52,6 +52,13 @@ No * formaLista (int ocorrencias[], int tam){
   return lista;
 }
 
+/*arv_vazia verifica se a árvore binária passada como parâmetro está vazia, retorna 1 (True) se estiver,
+senão, retorna 0 (False)*/
+
+int arv_vazia(No* a) {
+	return a == NULL;
+}
+
 
 /*arvImprime imprime a árvore binária em pré- ordem, ou seja, primeiro as informações no nó raiz,
 seguido dos nós à esquerda e por fim os nós à direita*/
